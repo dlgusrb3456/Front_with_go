@@ -1,0 +1,166 @@
+h1{ /*h1 태그가 붙은 HTML에 밑의 속성을 부여하겠다*/
+    color: brown;
+}
+
+div{
+    box-sizing: content-box; /* 요소 사이즈에 패딩, 테두리 포함 X */ 
+    box-sizing: border-box; /*패딩 & 테두리 다 포함*/
+ 
+}
+body{
+    text-align: center;
+    margin: 0;
+}
+
+*{ /* 전체에 다 적용 */
+    box-sizing: border-box;
+}
+
+.coding{ /* 특정 클래스에 값 주기. h2.coding => 태그 and 클래스 */
+    color: brown;
+}
+
+#original { /*ID에 값 주기*/
+    color: red
+}
+h2#original2{
+    color:green
+}
+
+div.second h3{
+    color: yellow
+}
+
+div.struct {
+    margin: 30px 10px;
+    border: 6px solid blue;
+    padding: 10px 50px
+}
+div.image{
+    width: 300px;
+    height: 300px;
+    margin:0 auto;
+    
+}
+img{
+    /* 부모 요소의 width & height를 특정 %이상으로는 넘지 않는다*/
+    /* max-width: 100%;
+    max-height: 100%; */
+    width:100%;
+    height:100%;
+}
+.temp_image{
+     /*object-fit: contain; */ /*비율 맞추면서 증가. width or height중 하나라도 닿으면 멈춤*/
+    /*https://stackoverflow.com/questions/34247337/object-fit-not-affecting-images  사용 오류 */
+     object-fit: contain; /*비율 박살내고 부모에 맞춤*/
+     
+}   
+div.overflow{
+    border:2px solid black;
+    width: 180px;
+    font-size: 50px;
+    overflow: auto;
+
+    background-image: url(./me.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin:0 auto;
+}
+
+div.red{ /* float를 이용해 div 요소간의 가로 배치를 가능하게 해줌 */
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+
+div.blue{
+    background-color: blue;
+    width: 100px;
+    height: 100px;
+    float: right;
+}
+/* 하지만 float 적용시 margin(부모의 width까지 있던) 값이 사라지는 문제가 생김 + float를 사용하지 않고 float에 영향을 받지 않게 하기 위해서? => clear()를 이용해 해결*/
+/* div.blue{
+    clear: left;
+} */
+
+/* Float로 인한 범람 막기!*/
+div.colors::after{
+    content:" ";
+    display: block;
+    clear: both;
+}
+
+/* float 방식을 이용한 가로배치는 웹사이트 크기에 동적으로 반응하지 못하므로 flex를 사용해 해결하게됨 */
+div.colors2{
+    display: flex;
+    justify-content: space-between;
+}
+div.red2{ 
+    background-color: red;
+    width: 100px;
+    height: 100px;
+}
+
+div.yellow2{
+    background-color: yellow;
+    width: 100px;
+    height: 100px;
+}
+
+div.blue2{
+    background-color: blue;
+    width: 100px;
+    height: 100px;
+    position: relative; /*원래 위치 기준으로 얼마만큼 떨어질 것이냐를 정함. 원래 본인 위치가 중요함*/
+    right: 50px; /*원래 위치에서 오른쪽에 50px만큼 떨어질 것이다 */
+}
+/* https://codingbff.medium.com/difference-between-css-position-absolute-versus-relative-35f064384c6 */
+/* relative(현재 위치 기준으로 옮김), absolute(부모 기준으로 옮김 => 기존의 위치는 사라짐) 차이 설명 */
+
+div.fix{ /* 화면에 고정 */
+    background-color: black;
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+div.sticky{
+    background-color: grey;
+    width: 100px;
+    height: 100px;
+    position: sticky;
+    top: 100px;
+    left: 0;
+}
+
+/* 단위
+    % : 부모 요소 기준 특정 % (50%일때 부모가 100px이면 얘는 50px인거임)
+    em : 부모 요소의 폰트 크기
+    rem : root 요소의 폰트 크기
+        ex) div.parent{
+            fone-size: 20px;
+        }
+        div.child{
+            width: 2em;
+        }
+        ==> 상위 요소의 크기 값에 em값을 곱함. 즉, child는 40px임
+
+        html{
+            font-size: 10px;
+        }
+        div.inner{
+            width: 5rem;
+        }
+        ==> root 요소인 html의 font-size 기준으로 rem의 값만큼 곱해서 적용. 즉, 50px임
+    vw/vh: v: 각 디바이스별 화면의 너비/높이를 기준으로 배율 설정
+        if 내가 보는 디바이스 화면 꽉채우고 싶다면?
+        div.view{
+            height: 100vh;
+            width: 100vw;
+        } 
+*/

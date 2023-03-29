@@ -4,11 +4,11 @@ import (
 	"VSCode/github_test/app"
 	"fmt"
 	"net/http"
-	"os"
 )
 
 func main() {
-	port := os.Getenv("PORT")
+	//port := os.Getenv("PORT")
+	port := "3000"
 	fmt.Println("test")
 	h := app.NewRouter()
 	http.ListenAndServe(":"+port, h)
