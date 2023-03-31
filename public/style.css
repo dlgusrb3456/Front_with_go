@@ -1,6 +1,4 @@
-h1{ /*h1 태그가 붙은 HTML에 밑의 속성을 부여하겠다*/
-    color: brown;
-}
+
 
 div{
     box-sizing: content-box; /* 요소 사이즈에 패딩, 테두리 포함 X */ 
@@ -136,6 +134,15 @@ div.sticky{
     position: sticky;
     top: 100px;
     left: 0;
+}
+
+div.title{
+    display: flex;
+    justify-content: space-between;
+}
+
+h1.my_name{
+    font-size: 100px;
 }
 
 /* 단위

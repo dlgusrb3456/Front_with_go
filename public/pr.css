@@ -1,0 +1,46 @@
+
+body{
+    text-align: center;
+    margin: 0;
+    width: 100vw;
+    
+}
+nav{
+   
+    background-color: yellow;
+    height: 10vh;
+}
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: orange;
+    margin: 0 auto;
+    width: 50vw;
+    height: 80vh;
+}
+
+footer{
+    background-color: red;
+    height: 10vh;
+  
+}
+p{
+    vertical-align: middle;
+    margin: auto;
+}
+
+.inner{
+    width: 50vw;
+    margin: 0 auto;
+    
+}
+
+div.my_name > p{
+    font-size: 30px;
+}
+div.my_name{
+
+}
+
+
